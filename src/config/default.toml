@@ -1,0 +1,107 @@
+# superfetch configuration
+#
+# Every key is optional: delete a line and its default applies again.
+# `superfetch --config` edits the common settings interactively, and
+# `superfetch --set key=value` overrides any key for a single run.
+
+# The lines of output, top to bottom. Reorder freely; remove a name to hide
+# that line. `superfetch --list` shows every module that can go here.
+modules = [
+    "title",
+    "separator",
+    "os",
+    "kernel",
+    "host",
+    "uptime",
+    "cpu",
+    "gpu",
+    "memory",
+    "disk",
+    "network",
+    "break",
+    "colors",
+]
+
+[logo]
+# "auto" follows the running OS. Also accepts "none", the name of a built-in
+# logo (`superfetch --list`) or the path of a text file. In a file, $1 to $9
+# switch between the logo's colors and $$ prints a dollar sign.
+source = "auto"
+# Side of the text the logo is drawn on: "left", "right" or "top".
+position = "left"
+# Columns between the logo and the text.
+gap = 3
+# Columns before the logo.
+indent = 0
+# Replaces the logo's own palette: the first entry is color $1, and so on.
+colors = []
+bold = true
+
+[theme]
+# A color is a name (red, bright_blue, gray), a 256-color index (0-255) or
+# "#rrggbb". A style is one color plus any of: bold dim italic underline.
+#
+# The accent colors the title and the labels. "auto" borrows it from the logo.
+accent = "auto"
+title = "bold accent"
+keys = "bold accent"
+text = "default"
+# The separator line and the unfilled part of bars.
+muted = "dim"
+# Percentages and bars, by level (see [thresholds]).
+good = "green"
+warn = "yellow"
+critical = "red"
+
+[thresholds]
+# Usage percentages above which a value turns warn / critical.
+warn = 50
+critical = 80
+
+[layout]
+# Printed between a label and its value.
+key_separator = ": "
+# "none" puts each value right after its label. "left" and "right" pad the
+# labels to a common width so the values line up in a column.
+key_align = "none"
+# Cut lines at the edge of the terminal instead of letting them wrap.
+truncate = true
+
+[bar]
+width = 10
+filled = "━"
+empty = "─"
+# Printed around the bar, for example "[" and "]".
+left = ""
+right = ""
+
+[units]
+# true counts in GiB (1024-based), false in GB (1000-based).
+binary = true
+precision = 2
+
+# Per-module settings.
+#
+# `label` is the text before the separator; leave it empty to print the value
+# alone. `format` is the value. Inside a format:
+#
+#   {name}       a field of the module (listed above each table)
+#   {env:NAME}   an environment variable
+#   {#style}     switch style, e.g. {#bold red}, {#accent}, {#muted}; {#} resets
+#   {? ... }     optional group: dropped when a field inside it is unavailable
+#
+# Fields that are not mentioned in the format are never computed, so trimming
+# a format also trims the work superfetch does.
+#
+# A table whose name is not a built-in module defines a custom one. Give it a
+# `command` to capture the first line of its output as {output}:
+#
+#   [module.editor]
+#   label = "Editor"
+#   format = "{env:EDITOR}"
+#
+#   [module.song]
+#   label = "Playing"
+#   command = "playerctl metadata title"
+#
+# Then add its name to `modules` at the top of this file.

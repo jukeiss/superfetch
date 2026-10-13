@@ -1,0 +1,21 @@
+[package]
+name = "superfetch"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+description = "A fast, configurable system information tool for the terminal"
+license = "MIT"
+repository = "https://github.com/jukeiss/superfetch"
+readme = "README.md"
+keywords = ["fetch", "sysinfo", "neofetch", "fastfetch", "cli"]
+categories = ["command-line-utilities"]
+
+# None. superfetch builds from the standard library alone; see src/toml.rs,
+# src/sys/c.rs and src/sys/win32.rs for what would otherwise be crates.
+[dependencies]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
