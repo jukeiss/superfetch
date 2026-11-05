@@ -16,7 +16,7 @@ config file, from flags, or from an interactive editor.
  XMMMMMMMMMMMMMMMMMMMMMMMX.      GPU: Apple M4
 ;MMMMMMMMMMMMMMMMMMMMMMMM:       Memory: 9.12 GiB / 16.00 GiB ━━━━━━──── 57%
 :MMMMMMMMMMMMMMMMMMMMMMMM:       Disk: 191.85 GiB / 228.27 GiB ━━━━━━━━── 84%
-.MMMMMMMMMMMMMMMMMMMMMMMMX.      Network: 192.168.1.27 (Wi-Fi)
+.MMMMMMMMMMMMMMMMMMMMMMMMX.      Network: 67.67.67.67 (Wi-Fi)
  kMMMMMMMMMMMMMMMMMMMMMMMMWd.
  'XMMMMMMMMMMMMMMMMMMMMMMMMMMk   ████████████████████████
   'XMMMMMMMMMMMMMMMMMMMMMMMMK.   ████████████████████████
